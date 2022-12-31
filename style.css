@@ -1,0 +1,54 @@
+body {
+  background-image: url("./images/realistic-winter-north-pole-background_23-2149852396.jpeg");
+  background-color: whitesmoke;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 198px;
+  padding-bottom: 198px;
+  color: rgb(250, 9, 33);
+  font-family: "Mountains of Christmas", cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex-basis: 100%;
+}
+.heading {
+  text-align: center;
+  font-size: 23px;
+}
+.instructions {
+  text-align: center;
+}
+.questions {
+  text-align: center;
+  font-size: 22px;
+  /* display: none; */
+}
+.input {
+  display: flex;
+}
+.keys button {
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  font-family: "Mountains of Christmas", cursive;
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+.buttons button {
+  font-family: "Mountains of Christmas", cursive;
+}
+
+section.bottom {
+  display: flex;
+}
+
+section.bottom .input {
+}
+
+section.bottom .hangman {
+}
