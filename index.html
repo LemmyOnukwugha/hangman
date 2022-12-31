@@ -21,62 +21,137 @@
           <h1>HANGMAN</h1>
         </fieldset>
       </div>
-      <div class="hanging"></div>
+
       <div class="instructions">
         <h3>PLEASE ANSWER CORRECTLY</h3>
       </div>
       <div class="questions">
-        <p id="question01">
-          Which popular Christmas beverage is also called "milk punch"?
-        </p>
-        <p id="question02" style="display: none">Where was baby Jesus born?</p>
-        <p id="question03" style="display: none">
-          What do people traditionally put on top a christmas tree?
-        </p>
-        <p id="question04" style="display: none">
-          What word follow "Silent Night" in the song?
-        </p>
-        <p id="question05" style="display: none">
-          What are you supposed to do when you find yourself under the
-          mistletoe?
-        </p>
+        <p id="question01"></p>
+      </div>
+      <div class="entries">
+        <div class="group">
+          <!-- <div class="unit">
+            <p class="letter">L</p>
+            <div class="dash"></div>
+          </div> -->
+        </div>
+      </div>
+      <div id="stage_container">
+        <div class="content">
+          <p id="current_stage"></p>
+          <p id="tries"></p>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="play" class="show">Play</button>
+        <button id="restart" class="hidden">Restart</button>
       </div>
       <section class="bottom">
         <div class="input">
-          <div class="buttons">
-            <button id="restart">Restart</button>
-          </div>
           <div class="keys">
-            <button id="a">A</button>
-            <button id="b">B</button>
-            <button id="c">C</button>
-            <button id="d">D</button>
-            <button id="e">E</button>
-            <button id="f">F</button>
-            <button id="g">G</button>
-            <br />
-            <button id="h">H</button>
-            <button id="i">I</button>
-            <button id="j">J</button>
-            <button id="k">K</button>
-            <button id="l">L</button>
-            <button id="m">M</button>
-            <button id="n">N</button>
-            <br />
-            <button id="o">O</button>
-            <button id="p">P</button>
-            <button id="q">Q</button>
-            <button id="r">R</button>
-            <button id="s">S</button>
-            <button id="t">T</button>
-            <button id="u">U</button>
-            <br />
-            <button id="v">V</button>
-            <button id="w">W</button>
-            <button id="x">X</button>
-            <button id="y">Y</button>
-            <button id="z">Z</button>
+            <button id="a" class="key_button">A</button>
+            <button id="b" class="key_button">B</button>
+            <button id="c" class="key_button">C</button>
+            <button id="d" class="key_button">D</button>
+            <button id="e" class="key_button">E</button>
+            <button id="f" class="key_button">F</button>
+            <button id="g" class="key_button">G</button>
+
+            <button id="h" class="key_button">H</button>
+            <button id="i" class="key_button">I</button>
+            <button id="j" class="key_button">J</button>
+            <button id="k" class="key_button">K</button>
+            <button id="l" class="key_button">L</button>
+            <button id="m" class="key_button">M</button>
+            <button id="n" class="key_button">N</button>
+
+            <button id="o" class="key_button">O</button>
+            <button id="p" class="key_button">P</button>
+            <button id="q" class="key_button">Q</button>
+            <button id="r" class="key_button">R</button>
+            <button id="s" class="key_button">S</button>
+            <button id="t" class="key_button">T</button>
+            <button id="u" class="key_button">U</button>
+
+            <button id="v" class="key_button">V</button>
+            <button id="w" class="key_button">W</button>
+            <button id="x" class="key_button">X</button>
+            <button id="y" class="key_button">Y</button>
+            <button id="z" class="key_button">Z</button>
           </div>
+        </div>
+        <div class="hangman">
+          <svg height="400" width="400">
+            <g id="body">
+              <g id="head" class="hidden">
+                <circle
+                  cx="200"
+                  cy="80"
+                  r="20"
+                  stroke="black"
+                  stroke-width="4"
+                  fill="white"
+                />
+                <g id="rEyes">
+                  <circle cx="193" cy="80" r="4" />
+                  <circle cx="207" cy="80" r="4" />
+                </g>
+                <g id="xEyes" class="hide">
+                  <line x1="190" y1="78" x2="196" y2="84" />
+                  <line x1="204" y1="78" x2="210" y2="84" />
+                  <line x1="190" y1="84" x2="196" y2="78" />
+                  <line x1="204" y1="84" x2="210" y2="78" />
+                </g>
+              </g>
+              <line
+                x1="200"
+                y1="100"
+                x2="200"
+                y2="150"
+                id="body-svg"
+                class="hidden"
+              />
+              <line
+                id="armL"
+                x1="200"
+                y1="120"
+                x2="170"
+                y2="140"
+                class="hidden"
+              />
+              <line
+                id="armR"
+                x1="200"
+                y1="120"
+                x2="230"
+                y2="140"
+                class="hidden"
+              />
+              <line
+                id="legL"
+                x1="200"
+                y1="150"
+                x2="180"
+                y2="190"
+                class="hidden"
+              />
+              <line
+                id="legR"
+                x1="200"
+                y1="150"
+                x2="220"
+                y2="190"
+                class="hidden"
+              />
+            </g>
+            <line x1="10" y1="250" x2="150" y2="250" />
+            <line id="door1" x1="150" y1="250" x2="200" y2="250" />
+            <line id="door2" x1="200" y1="250" x2="250" y2="250" />
+            <line x1="250" y1="250" x2="390" y2="250" />
+            <line x1="100" y1="250" x2="100" y2="20" />
+            <line x1="100" y1="20" x2="200" y2="20" />
+            <line id="rope" x1="200" y1="20" x2="200" y2="60" />
+          </svg>
         </div>
       </section>
     </div>
