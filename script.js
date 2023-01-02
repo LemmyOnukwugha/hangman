@@ -20,6 +20,15 @@ const playBtn = document.querySelector("#play");
 const resetBtn = document.querySelector("#restart");
 
 // APP'S STATE (VARIABLES)
+let stage = 0;
+let currentQuestion = null;
+let remainingQuestions = quiz;
+let answeredQuestions = [];
+const bodyParts = ["head", "body", "hands", "legs"];
+let tries = bodyParts.length;
+let currentIndexBoyPart = 0;
+let partsShown = [];
+let answerArray = [];
 
 //EVENT LISTENERS
 
