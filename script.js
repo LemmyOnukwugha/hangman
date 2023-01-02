@@ -91,3 +91,24 @@ function selectQuestion() {
   console.log("question from find", question);
   return question;
 }
+
+function reset() {
+  stage = 0;
+  currentQuestion = null;
+  answeredQuestions = [];
+  currentIndexBodyPart = 0;
+  partsShown = [];
+  showBtn(playBtn);
+  hideBtn(resetBtn);
+  stageEl.textContent = "";
+  triesEl.textContent = "";
+  groupEl.innerHTML = "";
+  questionsEl.textContent = "";
+  partsShown = [];
+  svgHead.setAttribute("class", "hidden");
+  svgBody.setAttribute("class", "hidden");
+  svgRightHand.setAttribute("class", "hidden");
+  svgLeftHand.setAttribute("class", "hidden");
+  svgRightLeg.setAttribute("class", "hidden");
+  svgLeftLeg.setAttribute("class", "hidden");
+}
