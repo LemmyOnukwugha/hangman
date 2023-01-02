@@ -194,3 +194,46 @@ function hangBodyParts() {
   console.log(partsShown);
   currentIndexBodyPart++;
 }
+
+function nextQuetion() {
+  if (stage === 5) {
+    alert("Congratulations, you've completed the game.");
+    reset();
+    return;
+  }
+
+  answeredQuestions.push(currentQuestion);
+  stage = stage + 1;
+  tries = 4;
+  triesEl.textContent = `Tries Remaining: ${tries}`;
+  stageEl.textContent = `Current Stage: ${stage}`;
+  const question = selectQuestion();
+  showQuestion(question);
+  console.log("stage", stage);
+}
+
+function showQuestion(question) {
+  currentQuestion = question;
+  displayQuestion(question.question);
+  displayDash();
+}
+
+function showBtn(button) {
+  button.className = "show";
+}
+
+function hideBtn(button) {
+  buttin.className = "hidden";
+}
+
+function startGame() {
+  reset();
+  stage = 1;
+  tries = 4;
+  stageEl.textContent = `Current Stage: ${stage}`;
+  triesEl.textContent = `Tries Remaining: ${tries}`;
+  const question = selectQuestion();
+  showQuestion(question);
+  showBtn(resetBtn);
+  hideBtn(playBtn);
+}
