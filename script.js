@@ -1,13 +1,12 @@
-// CONSTANTS & CACHED ELEMENT REFERENCES
-const containerEl = document.getElementsByClassName("conatiner");
+const containerEl = document.getElementsByClassName("container");
 const headingEl = document.getElementsByClassName("heading");
 const hangingEl = document.getElementsByClassName("hangman");
 const instructionsEl = document.getElementsByClassName("instructions");
-const questionsEl = document.getElementsByClassName("question01");
+const questionsEl = document.getElementById("question01");
 const buttonsEl = document.getElementsByClassName("buttons");
 const keysEl = document.getElementsByClassName("keys");
 const groupEl = document.querySelector(".group");
-const KeysBtns = document.querySelectorAll(".key_button");
+const KeyBtns = document.querySelectorAll(".key_button");
 const stageEl = document.querySelector("#current_stage");
 const triesEl = document.querySelector("#tries");
 const svgHead = document.querySelector("#head");
@@ -19,14 +18,12 @@ const svgRightLeg = document.querySelector("#legR");
 const playBtn = document.querySelector("#play");
 const resetBtn = document.querySelector("#restart");
 
-//EVENT LISTENERS
 playBtn.addEventListener("click", startGame);
 resetBtn.addEventListener("click", reset);
-KeysBtns.forEach((key, i) => {
+KeyBtns.forEach((key, i) => {
   key.addEventListener("click", handleSelectLetter);
 });
 
-//QUIZ ARRAY
 const quiz = [
   {
     id: 1,
@@ -51,12 +48,11 @@ const quiz = [
   {
     id: 5,
     question:
-      "What are you supposed to do when you find yourself under the mistletoe",
+      "What are you supposed to do when you find yourself under the mistletoe?",
     answer: "KISS",
   },
 ];
 
-// APP'S STATE (VARIABLES)
 let stage = 0;
 let currentQuestion = null;
 let remainingQuestions = quiz;
@@ -66,9 +62,6 @@ let tries = bodyParts.length;
 let currentIndexBodyPart = 0;
 let partsShown = [];
 let answerArray = [];
-
-//FUNCTIONS
-//function to show a question
 
 function selectQuestion() {
   if (currentQuestion) {
@@ -82,7 +75,7 @@ function selectQuestion() {
       });
     }
   }
-  console.log("the remaining quetions", remainingQuestions);
+  console.log("the remaining questions", remainingQuestions);
   const randomNum = getRandomNum();
   console.log("random Number", randomNum);
   const question = remainingQuestions.find((item, index) => {
@@ -117,7 +110,6 @@ function getRandomNum() {
   return Math.floor(Math.random() * remainingQuestions.length);
 }
 
-//display functions
 function displayQuestion(text) {
   questionsEl.textContent = text;
 }
@@ -170,7 +162,7 @@ function handleSelectLetter(event) {
     displayLetter(event.target.textContent);
   } else {
     tries = tries - 1;
-    triesEl.textContent = `Tries Remaining: ${tries}`;
+    triesEl.textContent = `tries Remaining: ${tries}`;
     console.log("Nope, not in answer");
     hangBodyParts();
   }
@@ -205,7 +197,7 @@ function nextQuetion() {
   answeredQuestions.push(currentQuestion);
   stage = stage + 1;
   tries = 4;
-  triesEl.textContent = `Tries Remaining: ${tries}`;
+  triesEl.textContent = `tries Remaining: ${tries}`;
   stageEl.textContent = `Current Stage: ${stage}`;
   const question = selectQuestion();
   showQuestion(question);
@@ -231,7 +223,7 @@ function startGame() {
   stage = 1;
   tries = 4;
   stageEl.textContent = `Current Stage: ${stage}`;
-  triesEl.textContent = `Tries Remaining: ${tries}`;
+  triesEl.textContent = `tries Remaining: ${tries}`;
   const question = selectQuestion();
   showQuestion(question);
   showBtn(resetBtn);
