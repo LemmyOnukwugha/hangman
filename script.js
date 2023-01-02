@@ -122,7 +122,7 @@ function displayQuestion(text) {
   questionsEl.textContent = text;
 }
 
-function displayLtter(letter) {
+function displayLetter(letter) {
   const divBox = groupEl.querySelectorAll(".unit");
   currentQuestion.answer.split("").forEach((item, index) => {
     const paragraphEl = divBox[index].querySelector(".letter");
@@ -174,4 +174,23 @@ function handleSelectLetter(event) {
     console.log("Nope, not in answer");
     hangBodyParts();
   }
+}
+
+function hangBodyParts() {
+  partsShown.push(bodyParts[currentIndexBodyPart]);
+  partsShown.forEach((item) => {
+    if (item === "head") {
+      svgHead.setAttribute("class", "show");
+    } else if (item === "body") {
+      svgBody.setAttribute("class", "show");
+    } else if (item === "hands") {
+      svgRightHand.setAttribute("class", "show");
+      svgLeftHand.setAttribute("class", "show");
+    } else {
+      svgRightLeg.setAttribute("class", "show");
+      svgLeftLeg.setAttribute("class", "show");
+    }
+  });
+  console.log(partsShown);
+  currentIndexBodyPart++;
 }
