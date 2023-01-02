@@ -121,3 +121,57 @@ function getRandonNum() {
 function displayQuestion(text) {
   questionsEl.textContent = text;
 }
+
+function displayLtter(letter) {
+  const divBox = groupEl.querySelectorAll(".unit");
+  currentQuestion.answer.split("").forEach((item, index) => {
+    const paragraphEl = divBox[index].querySelector(".letter");
+
+    if (letter === item) {
+      answerArray.push(item);
+      return (paragraphEl.textContent = letter);
+    } else {
+      return null;
+    }
+  });
+
+  if (answerArray.length === currentQuestion.answer.length) {
+    answerArray = [];
+
+    setTimeout(nextQuetion, 1000);
+  }
+}
+
+function displayDash() {
+  if (currentQuestion !== null) {
+    groupEl.innerHTML = "";
+    for (let i = 0; i < currentQuestion.answer.length; i++) {
+      const unitEl = document.createElement("div");
+      const letterEl = document.createElement("p");
+      const dashEl = document.createElement("div");
+      unitEl.className = "unit";
+      letterEl.className = "letter";
+      dashEl.className = "dash";
+      unitEl.append(letterEl);
+      unitEl.append(dashEl);
+      groupEl.append(unitEl);
+    }
+    currentQuestion.answer.length;
+  }
+}
+
+function handleSelectLetter(event) {
+  if (tries === 0) {
+    alert("Failed, please try again!");
+    reset();
+  }
+  if (currentQuestion.answer.includes(event.target.textContent)) {
+    console.log("Yes, it's contained in answer");
+    displayLetter(event.target.textContent);
+  } else {
+    tries = tries - 1;
+    triesEl.textContent = `Trails Remaining: ${tries}`;
+    console.log("Nope, not in answer");
+    hangBodyParts();
+  }
+}
