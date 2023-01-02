@@ -112,3 +112,7 @@ function reset() {
   svgRightLeg.setAttribute("class", "hidden");
   svgLeftLeg.setAttribute("class", "hidden");
 }
+
+function getRandonNum() {
+  return Math.floor(Math.random() * remainingQuestions.length);
+}
