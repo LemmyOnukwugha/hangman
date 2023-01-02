@@ -116,3 +116,8 @@ function reset() {
 function getRandonNum() {
   return Math.floor(Math.random() * remainingQuestions.length);
 }
+
+//display functions
+function displayQuestion(text) {
+  questionsEl.textContent = text;
+}
