@@ -25,7 +25,7 @@ List of Technologies used
 
 ## Getting Started
 
-<a href="">Hangman By Lemmy</a>
+<a href="https://lemmyonukwugha.github.io/hangman/">Hangman By Lemmy</a>
 
 ## Next Steps
 
