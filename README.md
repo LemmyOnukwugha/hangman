@@ -4,7 +4,7 @@
 
 ---
 
-Hangman is a guessing game. This version I created focuses on Christmas since tis the season 🎅🏻 therefore related trivia questions brought up and the player is required to guess the answer. five incorrect guesses and the player loses the game.
+Hangman is a guessing game. This version I created focuses on Christmas since tis the season 🎅🏻 therefore related trivia questions are brought up and the player is required to guess the answer. Five incorrect guesses and the player loses the game.
 
 ## Screenshots
 
