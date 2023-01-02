@@ -174,3 +174,34 @@ line {
   stroke: black;
   stroke-width: 4;
 }
+
+@media screen and (max-width: 876px) {
+  body {
+    height: unset;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+
+@media screen and (max-width: 554px) {
+  .inputs .keys {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+  }
+}
+
+@media screen and (max-width: 418px) {
+  .input .keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+}
+@media screen and (max-width: 418px) {
+  .content {
+    width: 220px;
+  }
+}

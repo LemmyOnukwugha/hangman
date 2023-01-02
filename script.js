@@ -19,17 +19,6 @@ const svgRightLeg = document.querySelector("#legR");
 const playBtn = document.querySelector("#play");
 const resetBtn = document.querySelector("#restart");
 
-// APP'S STATE (VARIABLES)
-let stage = 0;
-let currentQuestion = null;
-let remainingQuestions = quiz;
-let answeredQuestions = [];
-const bodyParts = ["head", "body", "hands", "legs"];
-let tries = bodyParts.length;
-let currentIndexBodyPart = 0;
-let partsShown = [];
-let answerArray = [];
-
 //EVENT LISTENERS
 playBtn.addEventListener("click", startGame);
 resetBtn.addEventListener("click", reset);
@@ -66,6 +55,17 @@ const quiz = [
     answer: "KISS",
   },
 ];
+
+// APP'S STATE (VARIABLES)
+let stage = 0;
+let currentQuestion = null;
+let remainingQuestions = quiz;
+let answeredQuestions = [];
+const bodyParts = ["head", "body", "hands", "legs"];
+let tries = bodyParts.length;
+let currentIndexBodyPart = 0;
+let partsShown = [];
+let answerArray = [];
 
 //FUNCTIONS
 //function to show a question
@@ -113,7 +113,7 @@ function reset() {
   svgLeftLeg.setAttribute("class", "hidden");
 }
 
-function getRandonNum() {
+function getRandomNum() {
   return Math.floor(Math.random() * remainingQuestions.length);
 }
 
@@ -170,7 +170,7 @@ function handleSelectLetter(event) {
     displayLetter(event.target.textContent);
   } else {
     tries = tries - 1;
-    triesEl.textContent = `Trails Remaining: ${tries}`;
+    triesEl.textContent = `Tries Remaining: ${tries}`;
     console.log("Nope, not in answer");
     hangBodyParts();
   }
@@ -223,7 +223,7 @@ function showBtn(button) {
 }
 
 function hideBtn(button) {
-  buttin.className = "hidden";
+  button.className = "hidden";
 }
 
 function startGame() {
