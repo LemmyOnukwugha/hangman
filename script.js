@@ -68,3 +68,26 @@ const quiz = [
 ];
 
 //FUNCTIONS
+//function to show a question
+
+function selectQuestion() {
+  if (currentQuestion) {
+    const selectedQue = remainingQuestions.find((que, index) => {
+      return que.id === currentQuestion.id;
+    });
+    console.log("selected question", selectedQue);
+    if (!!selectQuestion) {
+      remainingQuestions = remainingQuestions.filter((item, index) => {
+        return item.id !== selectedQue.id;
+      });
+    }
+  }
+  console.log("the remaining quetions", remainingQuestions);
+  const randomNum = getRandomNum();
+  console.log("random Number", randomNum);
+  const question = remainingQuestions.find((item, index) => {
+    return index === randomNum;
+  });
+  console.log("question from find", question);
+  return question;
+}
