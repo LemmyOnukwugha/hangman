@@ -26,10 +26,45 @@ let remainingQuestions = quiz;
 let answeredQuestions = [];
 const bodyParts = ["head", "body", "hands", "legs"];
 let tries = bodyParts.length;
-let currentIndexBoyPart = 0;
+let currentIndexBodyPart = 0;
 let partsShown = [];
 let answerArray = [];
 
 //EVENT LISTENERS
+playBtn.addEventListener("click", startGame);
+resetBtn.addEventListener("click", reset);
+KeysBtns.forEach((key, i) => {
+  key.addEventListener("click", handleSelectLetter);
+});
+
+//QUIZ ARRAY
+const quiz = [
+  {
+    id: 1,
+    question: 'Which popular Christmas beverage is also called "milk punch"?',
+    answer: "EGGNOG",
+  },
+  {
+    id: 2,
+    question: "Where was baby Jesus born?",
+    answer: "BETHLEHEM",
+  },
+  {
+    id: 3,
+    question: "What do people traditionally put on top a christmas tree?",
+    answer: "STAR",
+  },
+  {
+    id: 4,
+    question: 'What word follow "Silent Night" in the song?',
+    answer: "HOLY",
+  },
+  {
+    id: 5,
+    question:
+      "What are you supposed to do when you find yourself under the mistletoe",
+    answer: "KISS",
+  },
+];
 
 //FUNCTIONS
